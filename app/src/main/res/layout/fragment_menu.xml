@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFCD83"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/quizTxt"
+            android:layout_width="244dp"
+            android:layout_height="38dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="74dp"
+            android:layout_marginTop="133dp"
+            android:gravity="center_horizontal|top"
+            android:shadowDy="4"
+            android:shadowRadius="4"
+            android:text="과목을 선택하세요"
+
+            android:textColor="@color/white"
+            android:textSize="32sp" />
+
+        <Button
+            android:id="@+id/btn_language"
+            android:layout_width="303dp"
+            android:layout_height="74dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="98dp"
+            android:backgroundTint="#E78989"
+            android:elevation="4dp"
+            android:text="국어"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/btn_math"
+            android:layout_width="303dp"
+            android:layout_height="74dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="18dp"
+            android:backgroundTint="#8FAADF"
+            android:elevation="4dp"
+            android:text="수학"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/btn_capital"
+            android:layout_width="303dp"
+            android:layout_height="74dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="18dp"
+            android:text="수도"
+            android:elevation="4dp"
+            android:textSize="24sp"
+            android:backgroundTint="#ADC793"/>
+
+        <Button
+            android:id="@+id/btn_proverb"
+            android:layout_width="303dp"
+            android:layout_height="74dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="18dp"
+            android:text="속담"
+            android:elevation="4dp"
+            android:textSize="24sp"
+            android:backgroundTint="#FCB808"/>
+
+        <Button
+            android:id="@+id/btn_history"
+            android:layout_width="303dp"
+            android:layout_height="74dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="18dp"
+            android:text="역사"
+            android:elevation="4dp"
+            android:textSize="24sp"
+            android:backgroundTint="#C2A8DC"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
