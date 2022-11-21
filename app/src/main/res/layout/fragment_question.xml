@@ -7,115 +7,146 @@
     android:background="#FFCD83"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/img_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rectangle_orange_light" />
+
     <TextView
         android:id="@+id/subjectTextView"
-        android:layout_width="68dp"
-        android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp"
-        android:background="#FFE3B9"
-        android:gravity="center"
-        android:text="TextView"
-        android:textColor="#E65100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="수도"
+        android:textColor="#FF9B07"
         android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/NumberTextView"
-        android:layout_width="337dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="TextView"
-        android:textColor="#878787"
-        android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subjectTextView" />
+        app:layout_constraintBottom_toBottomOf="@+id/img_subject"
+        app:layout_constraintEnd_toEndOf="@+id/img_subject"
+        app:layout_constraintStart_toStartOf="@+id/img_subject"
+        app:layout_constraintTop_toTopOf="@+id/img_subject" />
 
-    <TextView
-        android:id="@+id/questionTextView"
-        android:layout_width="337dp"
-        android:layout_height="223dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="28dp"
-        android:background="#ADC793"
-        android:elevation="4dp"
-        android:gravity="center"
-        android:text="TextView"
-        android:textColor="#F3F1F0"
-        android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NumberTextView" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp">
 
-    <Button
-        android:id="@+id/example1Button"
-        android:layout_width="174dp"
-        android:layout_height="114dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="35dp"
-        android:backgroundTint="#FFFFFF"
-        android:onClick="example1ButtonClicked"
-        android:text="Button"
-        android:textColor="#ADC793"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionTextView" />
+        <TextView
+            android:id="@+id/NumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="1/10"
+            android:textColor="#878787"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/img_question"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/example2Button"
-        android:layout_width="174dp"
-        android:layout_height="114dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="35dp"
-        android:backgroundTint="#FFFFFF"
-        android:onClick="example2ButtonClicked"
-        android:text="Button"
-        android:textColor="#ADC793"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
-        app:layout_constraintStart_toEndOf="@+id/example1Button"
-        app:layout_constraintTop_toBottomOf="@+id/questionTextView" />
+        <ImageView
+            android:id="@+id/img_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/example1Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/NumberTextView"
+            app:srcCompat="@drawable/question_green" />
 
-    <Button
-        android:id="@+id/example3Button"
-        android:layout_width="174dp"
-        android:layout_height="114dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#FFFFFF"
-        android:onClick="example3ButtonClicked"
-        android:text="Button"
-        android:textColor="#ADC793"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/example1Button" />
+        <TextView
+            android:id="@+id/questionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="대한민국의 수도는?"
+            android:textColor="#F8F8F8"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/img_question"
+            app:layout_constraintEnd_toEndOf="@+id/img_question"
+            app:layout_constraintStart_toStartOf="@+id/img_question"
+            app:layout_constraintTop_toTopOf="@+id/img_question" />
 
-    <Button
-        android:id="@+id/example4Button"
-        android:layout_width="174dp"
-        android:layout_height="114dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#FFFFFF"
-        android:onClick="example4ButtonClicked"
-        android:text="Button"
-        android:textColor="#ADC793"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.589"
-        app:layout_constraintStart_toEndOf="@+id/example3Button"
-        app:layout_constraintTop_toBottomOf="@+id/example2Button" />
+        <android.widget.Button
+            android:id="@+id/example3Button"
+            android:layout_width="174dp"
+            android:layout_height="114dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/answer_btn"
+            android:gravity="center"
+            android:onClick="example3ButtonClicked"
+            android:text="서울"
+            android:textColor="#ADC793"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/example4Button"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/example1Button" />
+
+        <android.widget.Button
+            android:id="@+id/example1Button"
+            android:layout_width="174dp"
+            android:layout_height="114dp"
+            android:background="@drawable/answer_btn"
+            android:gravity="center"
+            android:onClick="example1ButtonClicked"
+            android:text="런던"
+            android:textColor="#ADC793"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/example3Button"
+            app:layout_constraintEnd_toStartOf="@+id/example2Button"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_question" />
+
+        <android.widget.Button
+            android:id="@+id/example2Button"
+            android:layout_width="174dp"
+            android:layout_height="114dp"
+            android:background="@drawable/answer_btn"
+            android:gravity="center"
+            android:onClick="example2ButtonClicked"
+            android:text="방콕"
+            android:textColor="#ADC793"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/example1Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/example1Button" />
+
+        <android.widget.Button
+            android:id="@+id/example4Button"
+            android:layout_width="174dp"
+            android:layout_height="114dp"
+            android:background="@drawable/answer_btn"
+            android:gravity="center"
+            android:onClick="example4ButtonClicked"
+            android:text="도쿄"
+            android:textColor="#ADC793"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/example3Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/example3Button" />
 
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
