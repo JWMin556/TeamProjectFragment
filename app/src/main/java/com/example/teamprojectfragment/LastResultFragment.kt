@@ -28,8 +28,9 @@ class LastResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding?.txtNumCorrect?.text = "맞은 개수\n${myTotalCorrect}개"
-        binding?.txtNumIncorrect?.text = "틀린 개수\n${20 - (myTotalCorrect?.toInt() ?: 0)}개"
+        binding?.txtNumCorrect?.text = "${myTotalCorrect}개"
+        binding?.txtNumIncorrect?.text = "${20 - (myTotalCorrect?.toInt() ?: 0)}개"
+        binding?.txtPoint?.text = "${myTotalCorrect?.toInt()?.times(10)} p"
         binding?.btnRestart?.setOnClickListener {
             val restart = "restart"
             val bundle = Bundle().apply {
