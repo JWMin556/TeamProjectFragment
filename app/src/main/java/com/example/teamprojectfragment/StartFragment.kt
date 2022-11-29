@@ -34,6 +34,10 @@ class StartFragment : Fragment() {
             }
             findNavController().navigate(R.id.action_startFragment_to_menuFragment, bundle)
         }
+
+        binding?.btnLogout?.setOnClickListener{
+            findNavController().navigate(R.id.action_startFragment_to_loginFragment)
+        }
     }
 
     override fun onDestroyView() {
