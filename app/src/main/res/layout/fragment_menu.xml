@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFCD83"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/quizTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:shadowColor="#8E5505"
+        android:shadowDx="5.0"
+        android:shadowDy="5.0"
+        android:shadowRadius="5.0"
+        android:text="과목을 선택하세요"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quizTxt">
+
+        <android.widget.Button
+            android:id="@+id/btn_language"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_red_corner"
+            android:shadowColor="#5C3838"
+            android:shadowDx="5.0"
+            android:shadowDy="5.0"
+            android:shadowRadius="5.0"
+            android:text="국어"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <android.widget.Button
+            android:id="@+id/btn_math"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_blue_corner"
+            android:shadowColor="#5F6F8C"
+            android:shadowDx="5.0"
+            android:shadowDy="5.0"
+            android:shadowRadius="5.0"
+            android:text="수학"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <android.widget.Button
+            android:id="@+id/btn_capital"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_green_corner"
+            android:shadowColor="#83986E"
+            android:shadowDx="5.0"
+            android:shadowDy="5.0"
+            android:shadowRadius="5.0"
+            android:text="수도"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <android.widget.Button
+            android:id="@+id/btn_proverb"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_orange_corner"
+            android:shadowColor="#FF856103"
+            android:shadowDx="5.0"
+            android:shadowDy="5.0"
+            android:shadowRadius="5.0"
+            android:text="속담"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <android.widget.Button
+            android:id="@+id/btn_history"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/rounded_purple_corner"
+            android:shadowColor="#6D5F7C"
+            android:shadowDx="5.0"
+            android:shadowDy="5.0"
+            android:shadowRadius="5.0"
+            android:text="역사"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
