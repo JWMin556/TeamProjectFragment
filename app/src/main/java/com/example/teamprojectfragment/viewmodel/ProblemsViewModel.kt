@@ -620,7 +620,7 @@ val problems5 = arrayOf(  //mapOf를 사용해서 문제를 추출합니다.... 
         "example3" to "동학",
         "example4" to "성리학")
 )
-
+const val UNCHECKED_POINT = 0
 class ProblemsViewModel: ViewModel() {
     private val _problems1 = MutableLiveData<Array<Map<String, String>>>(problems1)
     private val _problems2 = MutableLiveData<Array<Map<String, String>>>(problems2)
@@ -633,4 +633,19 @@ class ProblemsViewModel: ViewModel() {
     val problemsOfCapital: LiveData<Array<Map<String, String>>> get() = _problems3
     val problemsOfProverb: LiveData<Array<Map<String, String>>> get() = _problems4
     val problemsOfHistory: LiveData<Array<Map<String, String>>> get() = _problems5
+
+    //점수수정을 위한 viewModel
+    private val _point = MutableLiveData<Int>(UNCHECKED_POINT)
+    val point: LiveData<Int> get() = _point
+
+    private fun modifyPoint(newValue: Int){
+        _point.value = _point.value?.let {
+            val newAnswer = newValue
+            newAnswer
+        }?: UNCHECKED_POINT
+    }
+
+    fun setPoint(newValue: Int){
+        modifyPoint(newValue)
+    }
 }
