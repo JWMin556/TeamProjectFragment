@@ -40,7 +40,7 @@
         android:id="@+id/img_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/btn_upload"
+        app:layout_constraintBottom_toTopOf="@+id/btn_LogIn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,17 +87,17 @@
         android:id="@+id/btn_upload"
         android:layout_width="110dp"
         android:layout_height="65dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rounded_corner"
         android:backgroundTint="#85BCEE"
         android:text="사진 업로드"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_LogIn"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_email" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_LogIn" />
 
     <android.widget.Button
         android:id="@+id/btn_LogIn"
@@ -109,18 +109,26 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_upload"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_SignUp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_email" />
+
+    <android.widget.Button
+        android:id="@+id/btn_SignUp"
+        android:layout_width="110dp"
+        android:layout_height="65dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="#ADC793"
+        android:text="회원가입"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_LogIn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btn_upload" />
-
-    <Button
-        android:id="@+id/btn_SignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="회원가입"
-        app:layout_constraintTop_toBottomOf="@+id/btn_LogIn"
-        tools:layout_editor_absoluteX="161dp" />
+        app:layout_constraintStart_toEndOf="@+id/btn_LogIn" />
 
     <EditText
         android:id="@+id/edt_Email"
