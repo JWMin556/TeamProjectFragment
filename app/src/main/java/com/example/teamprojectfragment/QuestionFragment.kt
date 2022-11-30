@@ -33,6 +33,7 @@ class QuestionFragment : Fragment() {
     var binding: FragmentQuestionBinding? = null
     val timer = object: CountDownTimer(10000,1000){//시간제한을 위한 변수입니다.
         override fun onTick(millisUntilFinished: Long) {
+        binding?.txtRemainTime?.setTextColor(Color.rgb(173, 199, 147))
         binding?.txtRemainTime?.text = "남은 시간 : ${millisUntilFinished/1000}초"
 
         if(+millisUntilFinished/1000 < 5)
