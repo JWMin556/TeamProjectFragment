@@ -35,8 +35,17 @@ class StartFragment : Fragment() {
             findNavController().navigate(R.id.action_startFragment_to_menuFragment, bundle)
         }
 
-        binding?.btnLogin?.setOnClickListener{
+        binding?.btnLogin?.setOnClickListener{  //로그인을 위한 entryFragment로 이동합니다.
             findNavController().navigate(R.id.action_startFragment_to_entryFragment)
+        }
+
+        binding?.btnLogout?.setOnClickListener {
+            val bundle = Bundle().apply {
+                val logout = "로그아웃"
+                putString("logout", logout)
+                putString("restart", restart)  //혹여나 문제있으면 삭제
+            }
+            findNavController().navigate(R.id.action_startFragment_to_entryFragment, bundle)
         }
     }
 

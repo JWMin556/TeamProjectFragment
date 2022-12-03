@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_questionFragment_to_resultFragment"
             app:destination="@id/resultFragment" />
+        <action
+            android:id="@+id/action_questionFragment_to_lastResultFragment"
+            app:destination="@id/lastResultFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"

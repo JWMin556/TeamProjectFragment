@@ -19,6 +19,7 @@ class LastResultFragment : Fragment() {
             myTotalCorrect = it.getString("myTotalCorrect")
         }
     }
+
     val viewModel: ProblemsViewModel by activityViewModels()
     var binding: FragmentLastResultBinding? = null
 
@@ -34,7 +35,6 @@ class LastResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding?.txtNumCorrect?.text = "${myTotalCorrect}개"
         binding?.txtNumIncorrect?.text = "${20 - (myTotalCorrect?.toInt() ?: 0)}개"
-        //binding?.txtPoint?.text = "${myTotalCorrect?.toInt()?.times(10)} p"
         val mypoint = myTotalCorrect?.toInt()?.times(10)
         viewModel.setPoint(mypoint!!)
         viewModel.point.observe(viewLifecycleOwner){

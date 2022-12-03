@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.teamprojectfragment.databinding.FragmentResultBinding
+
 class ResultFragment : Fragment() {
     private var myAnswer: String? = null
     private var myquestion: String? = null
