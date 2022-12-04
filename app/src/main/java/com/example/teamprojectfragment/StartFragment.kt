@@ -47,6 +47,10 @@ class StartFragment : Fragment() {
             }
             findNavController().navigate(R.id.action_startFragment_to_entryFragment, bundle)
         }
+
+        binding?.btnRank?.setOnClickListener {
+            findNavController().navigate(R.id.action_startFragment_to_rankingFragment)
+        }
     }
 
     override fun onDestroyView() {
