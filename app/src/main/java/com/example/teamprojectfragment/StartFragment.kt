@@ -1,14 +1,22 @@
 package com.example.teamprojectfragment
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.navigation.fragment.findNavController
 import com.example.teamprojectfragment.databinding.FragmentStartBinding
+import com.google.firebase.storage.FirebaseStorage
+import java.util.*
 
 class StartFragment : Fragment() {
+
     private var restart : String? = null //LastResultFragment에서 재시작 신호를 받았을때
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

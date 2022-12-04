@@ -1,21 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="#FFCD83"
     tools:context=".RankingFragment">
 
-    <Button
-        android:id="@+id/btn_backToStart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="돌아가기" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/user_recyclerView"
+    <TextView
+        android:id="@+id/txt_first"
+        android:layout_width="100dp"
+        android:layout_height="145dp"
+        android:layout_marginTop="125dp"
+        android:background="#FF9A9A"
+        android:gravity="center_horizontal|top"
+        android:text="1"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_rank" />
+
+    <TextView
+        android:id="@+id/txt_second"
+        android:layout_width="100dp"
+        android:layout_height="91dp"
+        android:layout_marginEnd="10dp"
+        android:background="#98DAFF"
+        android:gravity="center_horizontal|top"
+        android:text="2"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_first"
+        app:layout_constraintEnd_toStartOf="@+id/txt_first" />
+
+    <TextView
+        android:id="@+id/txt_third"
+        android:layout_width="100dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="10dp"
+        android:background="#A983FA"
+        android:gravity="center_horizontal|top"
+        android:text="3"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_first"
+        app:layout_constraintStart_toEndOf="@+id/txt_first" />
+
+    <TextView
+        android:id="@+id/txt_rank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:shadowColor="#8E5505"
+        android:shadowDx="5.0"
+        android:shadowDy="5.0"
+        android:shadowRadius="5.0"
+        android:text="순위"
+        android:textColor="#FFFFFF"
+        android:textSize="27sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/img_th"
+        android:layout_width="61dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="55dp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_second"
+        app:layout_constraintEnd_toEndOf="@+id/txt_second"
+        app:layout_constraintStart_toStartOf="@+id/txt_second"
+        app:srcCompat="@drawable/loginui" />
+
+    <ImageView
+        android:id="@+id/img_second"
+        android:layout_width="61dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="55dp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_second"
+        app:layout_constraintEnd_toEndOf="@+id/txt_second"
+        app:layout_constraintStart_toStartOf="@+id/txt_second"
+        app:srcCompat="@drawable/loginui" />
+
+    <TextView
+        android:id="@+id/txt_secondInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:shadowColor="#8E5505"
+        android:shadowDx="5.0"
+        android:shadowDy="5.0"
+        android:shadowRadius="5.0"
+        android:text="안나\n1234567"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/img_second"
+        app:layout_constraintStart_toStartOf="@+id/img_second"
+        app:layout_constraintTop_toBottomOf="@+id/img_second" />
+
+    <ImageView
+        android:id="@+id/img_first"
+        android:layout_width="61dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="55dp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_first"
+        app:layout_constraintEnd_toEndOf="@+id/txt_first"
+        app:layout_constraintStart_toStartOf="@+id/txt_first"
+        app:srcCompat="@drawable/loginui" />
+
+    <ImageView
+        android:id="@+id/img_third"
+        android:layout_width="61dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="55dp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_third"
+        app:layout_constraintEnd_toEndOf="@+id/txt_third"
+        app:layout_constraintStart_toStartOf="@+id/txt_third"
+        app:srcCompat="@drawable/loginui" />
+
+    <TextView
+        android:id="@+id/txt_firstInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:shadowColor="#8E5505"
+        android:shadowDx="5.0"
+        android:shadowDy="5.0"
+        android:shadowRadius="5.0"
+        android:text="찰리\n1234568"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/img_first"
+        app:layout_constraintStart_toStartOf="@+id/img_first"
+        app:layout_constraintTop_toBottomOf="@+id/img_first" />
+
+    <TextView
+        android:id="@+id/txt_thirdInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:shadowColor="#8E5505"
+        android:shadowDx="5.0"
+        android:shadowDy="5.0"
+        android:shadowRadius="5.0"
+        android:text="아서\n1234565"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/img_third"
+        app:layout_constraintStart_toStartOf="@+id/img_third"
+        app:layout_constraintTop_toBottomOf="@+id/img_third" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/list_users"/>
-</LinearLayout>
+        android:layout_marginTop="325dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txt_rank"
+        tools:layout_editor_absoluteX="1dp" />
+
+
+    <android.widget.Button
+        android:id="@+id/btn_backToStart"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="#ADC793"
+        android:text="돌아가기"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="325dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/user_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            tools:listitem="@layout/list_users" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
