@@ -57,11 +57,11 @@ class EntryFragment : Fragment() {
             auth.signOut()
         }
 
-
         binding?.btnSignUp?.setOnClickListener {  //회원가입용 버튼입니다.
             val myPoint = 0
             val email = binding?.edtEmail?.text.toString()
             val password = binding?.edtPwd?.text.toString()
+
             auth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener { task ->
                     if(task.isSuccessful){
@@ -71,27 +71,6 @@ class EntryFragment : Fragment() {
                         Toast.makeText(getActivity(),"이미 존재하는 계정이거나, 회원가입에 실패했습니다.",Toast.LENGTH_SHORT).show()
                     }
                 }
-        }
-
-        binding?.btnUpload?.setOnClickListener { //사진업로드용 버튼입니다.
-            val email = binding?.edtEmail?.text.toString()
-            val password = binding?.edtPwd?.text.toString()
-            auth.signInWithEmailAndPassword(email,password)
-                .addOnCompleteListener { task ->
-                    if(task.isSuccessful) {
-                        Toast.makeText(getActivity(),"로그인에 성공했습니다!",Toast.LENGTH_SHORT).show()
-                        val bundle = Bundle().apply {  //문제있으면 삭제하기
-                            putString("restart", restart)
-                        }
-                    }else {
-                        Toast.makeText(getActivity(),"아이디와 비밀번호를 확인해주세요.",Toast.LENGTH_SHORT).show()
-                    }
-                }
-
-            val galleryIntent = Intent(Intent.ACTION_PICK) //앨범 호출
-            galleryIntent.type = "image/*" //image type
-            resultImage.launch(galleryIntent) //ActivityResultContract 실행
-
         }
 
         binding?.btnLogIn?.setOnClickListener{     //로그인용 버튼입니다
@@ -110,6 +89,13 @@ class EntryFragment : Fragment() {
                     }
                 }
         }
+
+        binding?.btnUpload?.setOnClickListener { //사진업로드용 버튼입니다.
+            val galleryIntent = Intent(Intent.ACTION_PICK) //앨범 호출
+            galleryIntent.type = "image/*" //image type
+            resultImage.launch(galleryIntent) //ActivityResultContract 실행
+
+        }
     }
 
     private fun addUserToDatabase(email: String, myPoint: Int, uId: String){
@@ -124,7 +110,7 @@ class EntryFragment : Fragment() {
                 //선택된 이미지의 URI 가져오기
                 val imageUri: Uri? = result.data?.data
                 //고유한 객체의 식별하기 위한 UUID를 파일명으로 사용
-                val fileName = (UUID.randomUUID()).toString()
+                val fileName = UUID.randomUUID().toString()
                 //하위 file에 fileName을 갖는 파일을 업로드
                 if (imageUri != null) {
                     storageRef.child("file/$fileName").putFile(imageUri)
@@ -133,7 +119,6 @@ class EntryFragment : Fragment() {
                 else {
                     Toast.makeText(getActivity(),"사진 업로드에 실패했습니다.", Toast.LENGTH_SHORT).show()
                 }
-
             }
         }
 

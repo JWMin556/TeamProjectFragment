@@ -6,7 +6,6 @@ data class MyUser(
     var email : String,
     var myPoint: Int,
     var uId: String,
-    //var imageUri: Uri
 ){
     constructor(): this("", 0, "")
 }
