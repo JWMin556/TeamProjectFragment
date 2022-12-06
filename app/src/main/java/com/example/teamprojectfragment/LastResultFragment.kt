@@ -1,10 +1,5 @@
 package com.example.teamprojectfragment
-<<<<<<< HEAD
-// 맞힌 개수 틀린 개수 포인트 최종 결과
 
-=======
-//맞힌 개수 틀린 개수 포인트 최종 결과
->>>>>>> 2ae06a7c768fc5ebe16ba957fddf40f23ffb1ab4
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

@@ -1,10 +1,5 @@
 package com.example.teamprojectfragment
-<<<<<<< HEAD
-// 답 눌렀을 때 정답인지 오답인지 알려주는 것
 
-=======
-//답 눌렀을 때 정답인지 오답인지 알려주는 것
->>>>>>> 2ae06a7c768fc5ebe16ba957fddf40f23ffb1ab4
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Spannable

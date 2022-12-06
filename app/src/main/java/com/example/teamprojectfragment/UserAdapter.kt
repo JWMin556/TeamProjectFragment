@@ -1,10 +1,5 @@
 package com.example.teamprojectfragment
-<<<<<<< HEAD
-// 랭킹 페이지에서 유저 한 칸을 나타냄
 
-=======
-//랭킹 페이지에서 유저 한 칸을 나타냄
->>>>>>> 2ae06a7c768fc5ebe16ba957fddf40f23ffb1ab4
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
