@@ -62,32 +62,43 @@ class EntryFragment : Fragment() {
             val email = binding?.edtEmail?.text.toString()
             val password = binding?.edtPwd?.text.toString()
 
-            auth.createUserWithEmailAndPassword(email,password)
-                .addOnCompleteListener { task ->
-                    if(task.isSuccessful){
-                        Toast.makeText(getActivity(),"회원가입에 성공했습니다!",Toast.LENGTH_SHORT).show()
-                        addUserToDatabase(email, myPoint, auth.currentUser?.uid!!)
-                    }else{
-                        Toast.makeText(getActivity(),"이미 존재하는 계정이거나, 회원가입에 실패했습니다.",Toast.LENGTH_SHORT).show()
+            if(email.isNullOrBlank() || password.isNullOrBlank()){
+                Toast.makeText(getActivity(), "이메일과 비밀번호 모두 입력해주세요.", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                auth.createUserWithEmailAndPassword(email, password) //createUserWithE&P에 새 사용자의 이메일 주소와 비밀번호 전달
+                    .addOnCompleteListener { task -> //통신 완료가 된 후 무슨 일을 할지
+                        if (task.isSuccessful) { //정상적으로 작동할 때, 기존에 있는 계정이 아니다
+                            Toast.makeText(getActivity(), "회원가입에 성공했습니다!", Toast.LENGTH_SHORT).show()
+                            addUserToDatabase(email, myPoint, auth.currentUser?.uid!!)
+                        } else {
+                            Toast.makeText(getActivity(), "이미 존재하는 계정이거나, 회원가입에 실패했습니다.", Toast.LENGTH_SHORT).show()
+                        }
                     }
-                }
+            }
+
         }
 
         binding?.btnLogIn?.setOnClickListener{     //로그인용 버튼입니다
             val email = binding?.edtEmail?.text.toString()
             val password = binding?.edtPwd?.text.toString()
-            auth.signInWithEmailAndPassword(email,password)
-                .addOnCompleteListener { task ->
-                    if(task.isSuccessful) {
-                        Toast.makeText(getActivity(),"로그인에 성공했습니다!",Toast.LENGTH_SHORT).show()
-                        val bundle = Bundle().apply {  //문제있으면 삭제하기
-                            putString("restart", restart)
+
+            if(email.isNullOrBlank() || password.isNullOrBlank()){
+                Toast.makeText(getActivity(), "이메일과 비밀번호 모두 입력해주세요.", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                auth.signInWithEmailAndPassword(email, password) //로그인할 때 사용장의 이메일과 비밀번호를 signInWithE&P에 전달
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) { Toast.makeText(getActivity(), "로그인에 성공했습니다!", Toast.LENGTH_SHORT).show()
+                            val bundle = Bundle().apply {  //문제있으면 삭제하기
+                                putString("restart", restart)
+                            }
+                            findNavController().navigate(R.id.action_entryFragment_to_startFragment, bundle)
+                        } else {
+                            Toast.makeText(getActivity(), "아이디와 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show()
                         }
-                        findNavController().navigate(R.id.action_entryFragment_to_startFragment, bundle)
-                    }else {
-                        Toast.makeText(getActivity(),"아이디와 비밀번호를 확인해주세요.",Toast.LENGTH_SHORT).show()
                     }
-                }
+            }
         }
 
         binding?.btnUpload?.setOnClickListener { //사진업로드용 버튼입니다.
