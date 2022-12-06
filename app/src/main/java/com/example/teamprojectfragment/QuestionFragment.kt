@@ -16,7 +16,7 @@ var problemNumber = 1 //problemNUmber는 화면에 직접적으로 display이 �
 // ResultFragment에서 돌아왔을 때, problemNumber를 재초기화 해서는 안되므로, 이렇게 전역변수로 선언하여 QustionFragment가 최초로 실행될때만 초기화되도록 했습니다.
 var totalCorrect = 0  //전체 맞은 개수를 세기위한 변수입니다. 이또한 마찬가지로 전역변수로 선언했습니다
 class QuestionFragment : Fragment() {
-
+    //이들은 모두 번들에 해당, key가 있을때를 대비한 것입니다.
     private var mySubject : String? = null  //과목을 위한 것입니다.
     private var myGoToNext : String? = null  //문제를 넘기기 위한 것입니다.
     private var restart : String? = null //LastResultFragment에서 재시작 신호를 받았을때
@@ -33,12 +33,12 @@ class QuestionFragment : Fragment() {
     var binding: FragmentQuestionBinding? = null
 
     val timer = object: CountDownTimer(10000,1000){//시간제한을 위한 변수입니다.
-        override fun onTick(millisUntilFinished: Long) {
+        override fun onTick(millisUntilFinished: Long) {  //타이머 설정을 위한 함수입니다.
         binding?.txtRemainTime?.setTextColor(Color.rgb(173, 199, 147))
-        binding?.txtRemainTime?.text = "남은 시간 : ${millisUntilFinished/1000}초"
+        binding?.txtRemainTime?.text = "남은 시간 : ${millisUntilFinished/1000}초"  //기본 10초를 타이머로 설정합니다.
 
-        if(+millisUntilFinished/1000 < 5)
-            binding?.txtRemainTime?.setTextColor(Color.rgb(231, 137, 137))
+        if(+millisUntilFinished/1000 < 5)  //타이머가 5초 이하일때
+            binding?.txtRemainTime?.setTextColor(Color.rgb(231, 137, 137))  //색을 빨강색으로 바꿔서 경고합니다.
         }
 
         override fun onFinish() {
@@ -46,7 +46,7 @@ class QuestionFragment : Fragment() {
                 val bundle = Bundle().apply {putString("myTotalCorrect", totalCorrect.toString())}
                 findNavController().navigate(R.id.action_questionFragment_to_lastResultFragment, bundle)
             }
-            else{
+            else{  //일반문제에서 시간초과가 날 경우, 바로 다음 문제를 보여줍니다.
                 problemNumber += 1  //즉, 페이지 수를 올려간다.
                 showProblem(problemNumber, mySubject!!)
             }
@@ -63,6 +63,8 @@ class QuestionFragment : Fragment() {
     }
 
     val totalProblemNum = 20  //전체 문제수입니다.
+
+    //이들은 viewModel에서 각각 받아온 문제, 정잡, 4지선 답들을 보관할 변수입니다.
     var question = ""
     var answer = ""
     var example1 = ""
@@ -142,7 +144,7 @@ class QuestionFragment : Fragment() {
         }
     }
 
-    fun showProblem(pn: Int, mySubject: String) { //problemNUmber도 파라미터로 받기(객체지향으로 만들기)
+    fun showProblem(pn: Int, mySubject: String) { //pn은 문제번호를 , mySubject는 해당문제의 주제를 보여줍니다.
         binding?.NumberTextView?.setText("$problemNumber /20")
         timer.start()  //문제가 보여지는 즉시, 타이머를 시작합니다.
 
@@ -245,7 +247,7 @@ class QuestionFragment : Fragment() {
             }
             findNavController().navigate(R.id.action_questionFragment_to_resultFragment, bundle)
         } else {  //즉, 사용자가 입력한 값이 오답일때,
-            bundle.putString("example", example)
+            bundle.putString("example", example)  //오답시에는 example도 번들에 넣어줍니다... why? example의 유무로 resultFragment에서 정답의 유무를 판정할 것입니다.
             bundle.putString("answer", answer)
             bundle.putString("question", question)
             bundle.putString("mySubject", mySubject)

@@ -19,6 +19,14 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class RankingFragment : Fragment() {
+    private var restart : String? = null //LastResultFragment에서 재시작 신호를 받았을때는 번들에서 값을 가져옵니다. 그렇지 않으면, 그냥, null로 냅둡니다.
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let{
+            restart = it.getString("restart")
+        }
+    }
+
     private lateinit var auth : FirebaseAuth  //전역으로 사용할 FirebaseAuth를 만들었습니다.
     private lateinit var mDbRef: DatabaseReference
     lateinit var adapter: UserAdapter
@@ -60,7 +68,10 @@ class RankingFragment : Fragment() {
         })
 
         binding?.btnBackToStart?.setOnClickListener {
-            findNavController().navigate(R.id.action_rankingFragment_to_startFragment)
+            val bundle = Bundle().apply {
+                putString("restart", restart)  //재시작할 경우, bundle에 그 값을 넣어서 menuFragment에 보내줍니다.
+            }
+            findNavController().navigate(R.id.action_rankingFragment_to_startFragment, bundle)
         }
     }
 

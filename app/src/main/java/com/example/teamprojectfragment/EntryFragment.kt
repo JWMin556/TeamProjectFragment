@@ -76,7 +76,6 @@ class EntryFragment : Fragment() {
                         }
                     }
             }
-
         }
 
         binding?.btnLogIn?.setOnClickListener{     //로그인용 버튼입니다
@@ -108,7 +107,7 @@ class EntryFragment : Fragment() {
         }
     }
 
-    private fun addUserToDatabase(email: String, myPoint: Int, uId: String){
+    private fun addUserToDatabase(email: String, myPoint: Int, uId: String){  //회원가입시, MyUser라는 데이터클래스를 이용해서 각 UID에 따른, 정보들을 저장할 수 있도록 했습니다.
         mDbRef.child("myUser").child(uId).setValue(MyUser(email, myPoint, uId))
     }
 

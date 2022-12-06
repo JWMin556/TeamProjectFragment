@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.teamprojectfragment.repository.ProblemsRepository
-
+//각 주제에 따라 모든 퀴즈의 문제, 정답, 4지선 다항들을 map으로 묶은뒤, 그 녀석들을 한꺼번에 array에 넣어줬습니다.
 val problems1 = arrayOf( //mapOf를 사용해서 문제를 추출합니다.... 배열의 형태로 만들어줬습니다. 물론, 현재는 무작위 추출이 아니고 이 배열의 순서대로 문제가 출력되는 형식으로 했습니다.
     mapOf("question" to "그 아이는 좀 (    )이다.",
         "answer" to "안하무인",
@@ -621,14 +621,17 @@ val problems5 = arrayOf(  //mapOf를 사용해서 문제를 추출합니다.... 
         "example3" to "동학",
         "example4" to "성리학")
 )
+
 const val UNCHECKED_POINT = 0
 class ProblemsViewModel: ViewModel() {
+    //밖에서 함부로 퀴즈데이터를 참고할 수 없도록 private으로 구현하고
     private val _problems1 = MutableLiveData<Array<Map<String, String>>>(problems1)
     private val _problems2 = MutableLiveData<Array<Map<String, String>>>(problems2)
     private val _problems3 = MutableLiveData<Array<Map<String, String>>>(problems3)
     private val _problems4 = MutableLiveData<Array<Map<String, String>>>(problems4)
     private val _problems5 = MutableLiveData<Array<Map<String, String>>>(problems5)
 
+    //밖에서 퀴즈데이터를 쓸 수 있도록 get함수를 사용
     val problemsOfLanguage: LiveData<Array<Map<String, String>>> get() =_problems1
     val problemsOfMath: LiveData<Array<Map<String, String>>> get() = _problems2
     val problemsOfCapital: LiveData<Array<Map<String, String>>> get() = _problems3
@@ -636,14 +639,15 @@ class ProblemsViewModel: ViewModel() {
     val problemsOfHistory: LiveData<Array<Map<String, String>>> get() = _problems5
 
     //점수수정을 위한 viewModel
-    private val _point = MutableLiveData<Int>(UNCHECKED_POINT)
-    val point: LiveData<Int> get() = _point
+    private val _point = MutableLiveData<Int>(UNCHECKED_POINT)  //밖에서 함수로 점수를 참고할 수 없도록
+    val point: LiveData<Int> get() = _point  //밖에서 점수를 볼 수 있도록
 
     private val repository = ProblemsRepository()
     init {
         repository.observeProblems(_point)
     }
 
+    //교수님의 실습방법을 적용해서 점수를 갱신할때, 밖에서 내부를 함부로 수정할 수 없도록 이중으로 만듭니다.
     private fun modifyPoint(newValue: Int){
         _point.value = _point.value?.let {
             val newAnswer = newValue
