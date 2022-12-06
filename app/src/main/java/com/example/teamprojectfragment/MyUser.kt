@@ -1,5 +1,5 @@
 package com.example.teamprojectfragment
-
+// Realtime DB에 어떤 걸 보관할지 data class로 저장
 import android.net.Uri
 
 data class MyUser(

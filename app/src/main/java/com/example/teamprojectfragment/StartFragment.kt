@@ -1,4 +1,5 @@
 package com.example.teamprojectfragment
+// 로그인 후 처음 페이지
 
 import android.content.Intent
 import android.net.Uri

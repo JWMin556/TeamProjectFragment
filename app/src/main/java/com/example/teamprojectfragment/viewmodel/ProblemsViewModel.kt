@@ -1,4 +1,5 @@
 package com.example.teamprojectfragment.viewmodel
+// 문제가 저장되어 있는 곳
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
