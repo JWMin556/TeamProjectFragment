@@ -1,5 +1,5 @@
 package com.example.teamprojectfragment
-
+//랭킹 페이지에서 유저 한 칸을 나타냄
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup

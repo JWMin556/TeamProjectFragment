@@ -1,5 +1,5 @@
 package com.example.teamprojectfragment
-
+//답 눌렀을 때 정답인지 오답인지 알려주는 것
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Spannable

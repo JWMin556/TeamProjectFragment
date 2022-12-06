@@ -1,5 +1,5 @@
 package com.example.teamprojectfragment.repository
-
+//파이어베이스에 누적 포인트 연동
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
