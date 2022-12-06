@@ -1,6 +1,10 @@
 package com.example.teamprojectfragment
+<<<<<<< HEAD
 // 로그인 후 처음 페이지
 
+=======
+//로그인 후 처음 페이지
+>>>>>>> 2ae06a7c768fc5ebe16ba957fddf40f23ffb1ab4
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle

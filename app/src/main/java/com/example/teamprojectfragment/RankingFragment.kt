@@ -1,6 +1,10 @@
 package com.example.teamprojectfragment
+<<<<<<< HEAD
 // 랭킹 페이지
 
+=======
+//랭킹 페이지
+>>>>>>> 2ae06a7c768fc5ebe16ba957fddf40f23ffb1ab4
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

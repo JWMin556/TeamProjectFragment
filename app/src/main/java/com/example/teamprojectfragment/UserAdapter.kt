@@ -1,6 +1,10 @@
 package com.example.teamprojectfragment
+<<<<<<< HEAD
 // 랭킹 페이지에서 유저 한 칸을 나타냄
 
+=======
+//랭킹 페이지에서 유저 한 칸을 나타냄
+>>>>>>> 2ae06a7c768fc5ebe16ba957fddf40f23ffb1ab4
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -25,7 +29,7 @@ class UserAdapter(val context: Context, private val userList: ArrayList<MyUser>)
         fun bind(user : MyUser){
             binding.txtRanking.text = "${position + 1}등"
             binding.txtEmail.text = user.email
-            binding.txtPoint.text = user.myPoint.toString()
+            binding.txtPoint.text = "${user.myPoint}p"
         }
     }
     }

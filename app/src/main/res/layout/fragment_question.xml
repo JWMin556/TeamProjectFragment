@@ -70,8 +70,9 @@
 
         <TextView
             android:id="@+id/questionTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="대한민국의 수도는?"
             android:textColor="#F8F8F8"
             android:textSize="24sp"

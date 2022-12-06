@@ -1,6 +1,10 @@
 package com.example.teamprojectfragment
+<<<<<<< HEAD
 // 문제
 
+=======
+//문제
+>>>>>>> 2ae06a7c768fc5ebe16ba957fddf40f23ffb1ab4
 import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer

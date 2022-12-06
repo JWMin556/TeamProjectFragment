@@ -1,6 +1,10 @@
 package com.example.teamprojectfragment.viewmodel
+<<<<<<< HEAD
 // 문제가 저장되어 있는 곳
 
+=======
+//문제 저장되어 있는 곳
+>>>>>>> 2ae06a7c768fc5ebe16ba957fddf40f23ffb1ab4
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
