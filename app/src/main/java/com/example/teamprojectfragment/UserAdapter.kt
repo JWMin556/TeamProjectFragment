@@ -24,7 +24,7 @@ class UserAdapter(val context: Context, private val userList: ArrayList<MyUser>)
         fun bind(user : MyUser){
             binding.txtRanking.text = "${position + 1}등"
             binding.txtEmail.text = user.email
-            binding.txtPoint.text = user.myPoint.toString()
+            binding.txtPoint.text = "${user.myPoint}p"
         }
     }
     }
