@@ -27,7 +27,6 @@ class ProblemsRepository {
     }
 
     fun postPoint(newValue: Int){
-        //userRef.child(auth.currentUser?.uid!!).child("myPoint").setValue(newValue)
         userRef.child(auth.currentUser?.uid!!).child("myPoint").setValue(newValue + anw)
     }
 }

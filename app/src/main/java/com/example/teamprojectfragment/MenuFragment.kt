@@ -73,6 +73,10 @@ class MenuFragment : Fragment() {
             }
             findNavController().navigate(R.id.action_menuFragment_to_questionFragment, bundle)
         }
+
+        binding?.btnDraw?.setOnClickListener {
+            findNavController().navigate(R.id.action_menuFragment_to_paintingFragment)
+        }
     }
     override fun onDestroyView() {
         super.onDestroyView()
