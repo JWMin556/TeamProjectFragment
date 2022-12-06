@@ -3,6 +3,7 @@ package com.example.teamprojectfragment.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.teamprojectfragment.repository.ProblemsRepository
 
 val problems1 = arrayOf( //mapOf를 사용해서 문제를 추출합니다.... 배열의 형태로 만들어줬습니다. 물론, 현재는 무작위 추출이 아니고 이 배열의 순서대로 문제가 출력되는 형식으로 했습니다.
     mapOf("question" to "그 아이는 좀 (    )이다.",
@@ -638,11 +639,17 @@ class ProblemsViewModel: ViewModel() {
     private val _point = MutableLiveData<Int>(UNCHECKED_POINT)
     val point: LiveData<Int> get() = _point
 
+    private val repository = ProblemsRepository()
+    init {
+        repository.observeProblems(_point)
+    }
+
     private fun modifyPoint(newValue: Int){
         _point.value = _point.value?.let {
             val newAnswer = newValue
             newAnswer
         }?: UNCHECKED_POINT
+        repository.postPoint(_point.value?: UNCHECKED_POINT)
     }
 
     fun setPoint(newValue: Int){

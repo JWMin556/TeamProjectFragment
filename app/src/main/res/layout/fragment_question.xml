@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:text="대한민국의 수도는?"
             android:textColor="#F8F8F8"
-            android:textSize="32sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/img_question"
             app:layout_constraintEnd_toEndOf="@+id/img_question"

@@ -31,6 +31,7 @@ class QuestionFragment : Fragment() {
 
     val viewModel: ProblemsViewModel by activityViewModels()  //viewModel에 있는 퀴즈문제들을 사용하기 위해서 입니다
     var binding: FragmentQuestionBinding? = null
+
     val timer = object: CountDownTimer(10000,1000){//시간제한을 위한 변수입니다.
         override fun onTick(millisUntilFinished: Long) {
         binding?.txtRemainTime?.setTextColor(Color.rgb(173, 199, 147))
@@ -41,8 +42,14 @@ class QuestionFragment : Fragment() {
         }
 
         override fun onFinish() {
-            problemNumber += 1  //즉, 페이지 수를 올려간다.
-            showProblem(problemNumber, mySubject!!)
+            if(totalProblemNum == problemNumber){  //마지막 문제에서 시간초과가 난 경우, 바로 최종결과를 보여주는 프레그먼트로 이동해줄 수 있게 작업했습니다.
+                val bundle = Bundle().apply {putString("myTotalCorrect", totalCorrect.toString())}
+                findNavController().navigate(R.id.action_questionFragment_to_lastResultFragment, bundle)
+            }
+            else{
+                problemNumber += 1  //즉, 페이지 수를 올려간다.
+                showProblem(problemNumber, mySubject!!)
+            }
         }
     }
 
@@ -54,6 +61,7 @@ class QuestionFragment : Fragment() {
         binding = FragmentQuestionBinding.inflate(inflater)
         return binding?.root
     }
+
     val totalProblemNum = 20  //전체 문제수입니다.
     var question = ""
     var answer = ""
@@ -247,57 +255,7 @@ class QuestionFragment : Fragment() {
             }
             findNavController().navigate(R.id.action_questionFragment_to_resultFragment, bundle)
         }
-        /*
-        binding?.example1Button?.setEnabled(false)
-        binding?.example2Button?.setEnabled(false)
-        binding?.example3Button?.setEnabled(false)
-        binding?.example4Button?.setEnabled(false)
-        val h = Handler()
-        h.postDelayed({
-            binding?.example1Button?.setEnabled(true)
-            binding?.example2Button?.setEnabled(true)
-            binding?.example3Button?.setEnabled(true)
-            binding?.example4Button?.setEnabled(true)
-
-            if (problemNumber < problems.size) {
-                binding?.example1Button?.setBackgroundColor(Color.rgb(255, 255, 255))
-                binding?.example2Button?.setBackgroundColor(Color.rgb(255, 255, 255))
-                binding?.example3Button?.setBackgroundColor(Color.rgb(255, 255, 255))
-                binding?.example4Button?.setBackgroundColor(Color.rgb(255, 255, 255))
-                //showProblem(problemNumber)
-            }
-            else {
-                binding?.example1Button?.setBackgroundColor(Color.rgb(255, 255, 255))
-                binding?.example2Button?.setBackgroundColor(Color.rgb(255, 255, 255))
-                binding?.example3Button?.setBackgroundColor(Color.rgb(255, 255, 255))
-                binding?.example4Button?.setBackgroundColor(Color.rgb(255, 255, 255))
-                //showGameOverBox()
-            }
-        }, 1000)
-
-         */
     }
-    /*
-    fun showGameOverBox() {
-        val alertDialog = AlertDialog.Builder(this)
-            .setTitle("게임 종료")
-            .setMessage("게임을 다시 하실래요?")
-            .setNegativeButton("앱 종료") { dialog, id -> exitApp() }
-            .setPositiveButton("다시 할래요") { dialog, id -> replay() }
-            .setCancelable(false) //true by default
-            .create()
-        alertDialog.show()
-    }
-
-    fun exitApp() {
-        System.exit(0)
-    }
-
-
-    fun replay() {
-        findNavController().navigate(R.id.)
-    }
-     */
 
     override fun onDestroyView() {
         super.onDestroyView()
