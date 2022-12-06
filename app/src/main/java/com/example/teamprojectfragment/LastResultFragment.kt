@@ -1,5 +1,5 @@
 package com.example.teamprojectfragment
-//맞힌 개수 틀린 개수 포인트 최종 결과
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

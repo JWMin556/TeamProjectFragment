@@ -1,5 +1,5 @@
 package com.example.teamprojectfragment
-//랭킹 페이지
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

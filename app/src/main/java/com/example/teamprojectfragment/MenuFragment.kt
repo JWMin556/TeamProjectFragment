@@ -1,5 +1,5 @@
 package com.example.teamprojectfragment
-//과목 선택
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
