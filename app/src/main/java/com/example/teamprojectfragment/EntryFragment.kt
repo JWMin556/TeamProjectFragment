@@ -18,20 +18,20 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.storage.FirebaseStorage
 import java.util.*
-
+//로그인 화면을 위한 프레그먼트를 작성했습니다.
 class EntryFragment : Fragment() {
 
     val storage = FirebaseStorage.getInstance() //스토리지 인스턴스 생성
     val storageRef = storage.getReference() //스토리지 참조
 
-    private var logout : String? = null  //StartFragment에서 로그아웃 신호를 받았을때
-    private var restart : String? = null //어떤 유저가 로그아웃을 한뒤, 다시 새로운 유저가 재시작을 할때
+    private var logout : String? = null  //StartFragment에서 로그아웃 신호를 받았을때를 대비합니다. 만약 로그아웃 신호를 받을경우, null을 다른 값으로 바꿔줍니다.
+    private var restart : String? = null //어떤 유저가 로그아웃을 한뒤, 다시 새로운 유저가 재시작을 할때를 대비합니다. 만약 로그아웃 신호를 받을경우, null을 다른 값으로 바꿔줍니다.
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let{
+        arguments?.let{  //위에서 로그아웃 신호를 대비한다고 했습니다. 로그아웃 신호는 바로 번들에 해당 key가 있는지의 유무로 확인합니다.
             logout = it.getString("logout")
-            restart = it.getString("restart")  //문제 있으면 삭제하기
+            restart = it.getString("restart")
         }
     }
 
@@ -52,9 +52,9 @@ class EntryFragment : Fragment() {
         auth = FirebaseAuth.getInstance()  //auth로 파이어베이스의 auth에 접근합니다.
         mDbRef = Firebase.database.reference  //파이어베이스의 realtime에 접근
 
-        if(logout == "로그아웃") {  //번들에 logout신호가 있을떄.
-            Toast.makeText(getActivity(),"로그아웃!",Toast.LENGTH_SHORT).show()
-            auth.signOut()
+        if(logout == "로그아웃") {  //logout변수가 null이 아닐떄는 곧 로그아웃 신호를 받았을 떄입니다.
+            Toast.makeText(getActivity(),"로그아웃!",Toast.LENGTH_SHORT).show()  //로그아웃을 알림으로 출력합니다.
+            auth.signOut()  //auth를 로그아웃합니다.
         }
 
         binding?.btnSignUp?.setOnClickListener {  //회원가입용 버튼입니다.
@@ -62,16 +62,16 @@ class EntryFragment : Fragment() {
             val email = binding?.edtEmail?.text.toString()
             val password = binding?.edtPwd?.text.toString()
 
-            if(email.isNullOrBlank() || password.isNullOrBlank()){
+            if(email.isNullOrBlank() || password.isNullOrBlank()){  //아무것도 입력하지 않고, 회원가입 버튼을 누르면, 다음과 같은 알림을 발송합니다.
                 Toast.makeText(getActivity(), "이메일과 비밀번호 모두 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
-            else {
+            else {  //그렇지 않다면,,,,,,,
                 auth.createUserWithEmailAndPassword(email, password) //createUserWithE&P에 새 사용자의 이메일 주소와 비밀번호 전달
                     .addOnCompleteListener { task -> //통신 완료가 된 후 무슨 일을 할지
-                        if (task.isSuccessful) { //정상적으로 작동할 때, 기존에 있는 계정이 아니다
+                        if (task.isSuccessful) { //정상적으로 작동할 때, 기존에 있는 계정이 아닐경우,
                             Toast.makeText(getActivity(), "회원가입에 성공했습니다!", Toast.LENGTH_SHORT).show()
                             addUserToDatabase(email, myPoint, auth.currentUser?.uid!!)
-                        } else {
+                        } else {  //기존에 존재하는 경우,
                             Toast.makeText(getActivity(), "이미 존재하는 계정이거나, 회원가입에 실패했습니다.", Toast.LENGTH_SHORT).show()
                         }
                     }
@@ -90,7 +90,7 @@ class EntryFragment : Fragment() {
                 auth.signInWithEmailAndPassword(email, password) //로그인할 때 사용장의 이메일과 비밀번호를 signInWithE&P에 전달
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) { Toast.makeText(getActivity(), "로그인에 성공했습니다!", Toast.LENGTH_SHORT).show()
-                            val bundle = Bundle().apply {  //문제있으면 삭제하기
+                            val bundle = Bundle().apply {  //restart를 다시 번들에 넣어준 이유는, 로그아웃후 다른 회원으로 시작할시, 해당 내용을 startFragment에 전달하기 위해서 입니다.
                                 putString("restart", restart)
                             }
                             findNavController().navigate(R.id.action_entryFragment_to_startFragment, bundle)
@@ -105,7 +105,6 @@ class EntryFragment : Fragment() {
             val galleryIntent = Intent(Intent.ACTION_PICK) //앨범 호출
             galleryIntent.type = "image/*" //image type
             resultImage.launch(galleryIntent) //ActivityResultContract 실행
-
         }
     }
 
@@ -133,7 +132,7 @@ class EntryFragment : Fragment() {
             }
         }
 
-    override fun onDestroyView() {
+    override fun onDestroyView() {  //viewDestroy입니다.
         super.onDestroyView()
         binding = null
     }

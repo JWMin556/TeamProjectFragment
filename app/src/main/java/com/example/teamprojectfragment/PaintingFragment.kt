@@ -68,4 +68,9 @@ class PaintingFragment : Fragment() {
         path = Path()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
+
 }
