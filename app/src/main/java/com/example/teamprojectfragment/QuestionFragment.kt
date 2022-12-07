@@ -13,7 +13,7 @@ import com.example.teamprojectfragment.databinding.FragmentQuestionBinding
 import com.example.teamprojectfragment.viewmodel.ProblemsViewModel
 
 var problemNumber = 1 //problemNUmber는 화면에 직접적으로 display이 되지 않지만, 다음 페이지로 넘어가기위한 페이지 역할을 수행합니다. 그렇기에 이 변수는 계속 숫자가 바뀌므로 var로 선언했습니다.
-// ResultFragment에서 돌아왔을 때, problemNumber를 재초기화 해서는 안되므로, 이렇게 전역변수로 선언하여 QustionFragment가 최초로 실행될때만 초기화되도록 했습니다.
+// ResultFragment에서 돌아왔을 때, problemNumber를 재초기화 해서는 안되므로, 이렇게 전역변수로 선언하여 QuestionFragment가 최초로 실행될때만 초기화되도록 했습니다.
 var totalCorrect = 0  //전체 맞은 개수를 세기위한 변수입니다. 이또한 마찬가지로 전역변수로 선언했습니다
 class QuestionFragment : Fragment() {
     //이들은 모두 번들에 해당, key가 있을때를 대비한 것입니다.
@@ -64,7 +64,7 @@ class QuestionFragment : Fragment() {
 
     val totalProblemNum = 20  //전체 문제수입니다.
 
-    //이들은 viewModel에서 각각 받아온 문제, 정잡, 4지선 답들을 보관할 변수입니다.
+    //이들은 viewModel에서 각각 받아온 문제, 정답, 4지선 답들을 보관할 변수입니다.
     var question = ""
     var answer = ""
     var example1 = ""

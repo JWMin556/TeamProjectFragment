@@ -43,12 +43,6 @@ class StartFragment : Fragment() {
             findNavController().navigate(R.id.action_startFragment_to_menuFragment, bundle)
         }
 
-        /* 이거 startFragment에서 로그인 할때 했던 코드인데, 저희는 맨 처음을 로그인화면으로 하였기에, 이 버튼은 해제하는게 좋다고 생각합니다.
-        binding?.btnLogin?.setOnClickListener{  //로그인을 위한 entryFragment로 이동합니다.
-            findNavController().navigate(R.id.action_startFragment_to_entryFragment)
-        }
-         */
-
         binding?.btnLogout?.setOnClickListener {  //로그아웃을 위해 다시 entryFragment로 이동합니다.
             val bundle = Bundle().apply {
                 val logout = "로그아웃"
