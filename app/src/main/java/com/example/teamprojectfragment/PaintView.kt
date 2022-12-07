@@ -42,7 +42,7 @@ class PaintView: View {
 
     }
 
-    override fun onTouchEvent(event: MotionEvent): Boolean {
+    override fun onTouchEvent(event: MotionEvent): Boolean { // 펜을 누르고 있는 이벤트
         var x = event.x
         var y = event.y
 
@@ -62,7 +62,7 @@ class PaintView: View {
         return false;
     }
 
-    override fun onDraw(canvas: Canvas) {
+    override fun onDraw(canvas: Canvas) { // 그리는 상태
         for(i in pathList.indices) {
             paintBrush.setColor(colorList[i])
             canvas.drawPath(pathList[i], paintBrush)

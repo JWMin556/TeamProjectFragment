@@ -244,6 +244,8 @@ class QuestionFragment : Fragment() {
             if(totalProblemNum == problemNumber) {  //만약, 문제가 다 끝났으면
                 bundle.putString("totalProblemNum", totalProblemNum.toString())
                 bundle.putString("totalCorrect", totalCorrect.toString())
+                problemNumber = 1
+                totalCorrect = 0
             }
             findNavController().navigate(R.id.action_questionFragment_to_resultFragment, bundle)
         } else {  //즉, 사용자가 입력한 값이 오답일때,
@@ -254,6 +256,8 @@ class QuestionFragment : Fragment() {
             if(totalProblemNum == problemNumber) {  //만약, 문제가 다 끝났으면
                 bundle.putString("totalProblemNum", totalProblemNum.toString())
                 bundle.putString("totalCorrect", totalCorrect.toString())
+                problemNumber = 1
+                totalCorrect = 0
             }
             findNavController().navigate(R.id.action_questionFragment_to_resultFragment, bundle)
         }
